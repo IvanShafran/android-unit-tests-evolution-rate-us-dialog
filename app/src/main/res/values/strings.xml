@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">UnitTestsEvolution</string>
+    <string name="buy_button">Buy</string>
+    <string name="rate_us_message">Please, rate us</string>
+    <string name="rate_now">Rate now</string>
+    <string name="remind_later">Remind later</string>
+    <string name="never_show_again">Never show again</string>
 </resources>
