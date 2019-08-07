@@ -13,11 +13,11 @@ class BuyActivity : AppCompatActivity(), RateUsDialog.Listener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buy)
 
-        buyPreferences = BuyPreferences(this)
+        buyPreferences = BuyPreferencesImpl(this)
         showRateUsLogic = ShowRateUsLogic(
-            RateUsPreferences(this),
+            RateUsPreferencesImpl(this),
             buyPreferences,
-            Time()
+            TimeImpl()
         )
 
         findViewById<View>(R.id.buyButton).setOnClickListener {

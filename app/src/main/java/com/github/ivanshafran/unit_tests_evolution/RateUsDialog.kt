@@ -8,7 +8,7 @@ import android.support.v7.app.AlertDialog
 
 class RateUsDialog : DialogFragment(), DialogInterface.OnClickListener {
 
-    private lateinit var rateUsPreferences: RateUsPreferences
+    private lateinit var rateUsPreferences: RateUsPreferencesImpl
 
     private val listener: Listener
         get() = requireActivity() as Listener? ?: throw IllegalStateException("Activity should implement Listener")
@@ -20,8 +20,8 @@ class RateUsDialog : DialogFragment(), DialogInterface.OnClickListener {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        rateUsPreferences = RateUsPreferences(requireContext())
-        rateUsPreferences.setLastShownTimeMillis(Time().getCurrentTimeMillis())
+        rateUsPreferences = RateUsPreferencesImpl(requireContext())
+        rateUsPreferences.setLastShownTimeMillis(TimeImpl().getCurrentTimeMillis())
         return AlertDialog.Builder(requireContext())
             .setMessage(R.string.rate_us_message)
             .setPositiveButton(R.string.rate_now, this)

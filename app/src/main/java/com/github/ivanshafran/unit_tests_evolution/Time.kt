@@ -1,9 +1,7 @@
 package com.github.ivanshafran.unit_tests_evolution
 
-class Time {
+interface Time {
 
-    fun getCurrentTimeMillis(): Long {
-        return System.currentTimeMillis()
-    }
+    fun getCurrentTimeMillis(): Long
 
 }
