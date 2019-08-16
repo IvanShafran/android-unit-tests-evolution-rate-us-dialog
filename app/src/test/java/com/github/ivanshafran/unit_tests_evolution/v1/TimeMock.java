@@ -12,6 +12,6 @@ public class TimeMock implements Time {
 
     @Override
     public long getCurrentTimeMillis() {
-        return 0;
+        return currentTimeMillis;
     }
 }
