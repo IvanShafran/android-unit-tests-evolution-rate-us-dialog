@@ -6,10 +6,6 @@ public class BuyPreferencesMock implements BuyPreferences {
 
     private int count;
 
-    public void setCount(int count) {
-        this.count = count;
-    }
-
     @Override
     public void incrementBuyCount() {
         ++count;
