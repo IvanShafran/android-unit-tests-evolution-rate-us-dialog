@@ -1,9 +1,8 @@
 package com.github.ivanshafran.unit_tests_evolution.v3;
 
-import com.github.ivanshafran.unit_tests_evolution.ShowRateUsLogic;
-import com.github.ivanshafran.unit_tests_evolution.Time;
-import com.github.ivanshafran.unit_tests_evolution.v1.BuyPreferencesMock;
-import com.github.ivanshafran.unit_tests_evolution.v1.RateUsPreferencesMock;
+import android.content.Context;
+import com.github.ivanshafran.sharedpreferencesmock.SPMockBuilder;
+import com.github.ivanshafran.unit_tests_evolution.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,16 +13,17 @@ import java.util.concurrent.TimeUnit;
 
 public class ShowRateUsLogicTest {
 
-    private RateUsPreferencesMock rateUsPreferences;
-    private BuyPreferencesMock buyPreferences;
+    private RateUsPreferences rateUsPreferences;
+    private BuyPreferences buyPreferences;
     private Time time;
 
     private ShowRateUsLogic showRateUsLogic;
 
     @Before
     public void setUp() {
-        rateUsPreferences = new RateUsPreferencesMock();
-        buyPreferences = new BuyPreferencesMock();
+        final Context mockedContext = new SPMockBuilder().createContext();
+        rateUsPreferences = new RateUsPreferencesImpl(mockedContext);
+        buyPreferences = new BuyPreferencesImpl(mockedContext);
         time = Mockito.mock(Time.class);
 
         showRateUsLogic = new ShowRateUsLogic(
