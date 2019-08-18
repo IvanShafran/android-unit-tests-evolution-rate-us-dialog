@@ -5,10 +5,10 @@ import android.content.Context
 class RateUsPreferencesImpl(context: Context) : RateUsPreferences {
 
     companion object {
-        private val PREFERENCES_FILENAME = "RATE_US_PREFERENCES"
-        private val LAST_SHOWN_TIME_KEY = "LAST_SHOWN_TIME_KEY"
-        private val NEVER_SHOW_AGAIN_CLICKED = "NEVER_SHOW_AGAIN_CLICKED"
-        private val RATE_NOW_CLICKED = "RATE_NOW_CLICKED"
+        private const val PREFERENCES_FILENAME = "RATE_US_PREFERENCES"
+        private const val LAST_SHOWN_TIME_KEY = "LAST_SHOWN_TIME_KEY"
+        private const val NEVER_SHOW_AGAIN_CLICKED = "NEVER_SHOW_AGAIN_CLICKED"
+        private const val RATE_NOW_CLICKED = "RATE_NOW_CLICKED"
     }
 
     private val sharedPreferences = context.getSharedPreferences(PREFERENCES_FILENAME, Context.MODE_PRIVATE)

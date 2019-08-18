@@ -5,8 +5,8 @@ import android.content.Context
 class BuyPreferencesImpl(context: Context) : BuyPreferences {
 
     companion object {
-        private val PREFERENCES_FILENAME = "BUY_PREFERENCES"
-        private val BUY_COUNT_KEY = "BUY_COUNT_KEY"
+        private const val PREFERENCES_FILENAME = "BUY_PREFERENCES"
+        private const val BUY_COUNT_KEY = "BUY_COUNT_KEY"
     }
 
     private val sharedPreferences = context.getSharedPreferences(PREFERENCES_FILENAME, Context.MODE_PRIVATE)
