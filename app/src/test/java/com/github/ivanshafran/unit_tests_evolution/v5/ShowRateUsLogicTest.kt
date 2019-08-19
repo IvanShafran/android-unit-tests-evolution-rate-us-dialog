@@ -82,12 +82,12 @@ class ShowRateUsLogicTest : Spek({
                         prepareConditions(
                             buyClickedTimes = 3,
                             lastShownTimeMillis = SOME_DAY_IN_MILLIS,
-                            currentTimeMillis = SOME_DAY_IN_MILLIS + MORE_THAN_TWO_MONTHS
+                            currentTimeMillis = SOME_DAY_IN_MILLIS + LESS_THAN_TWO_MONTHS
                         )
                     }
 
-                    it("should show 'rate us' again") {
-                        Assert.assertTrue(showRateUsLogic.shouldShowRateUs())
+                    it("should not show 'rate us' again") {
+                        Assert.assertFalse(showRateUsLogic.shouldShowRateUs())
                     }
                 }
 
