@@ -10,7 +10,7 @@ import com.nhaarman.mockitokotlin2.whenever
 import org.junit.Assert
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
-import java.util.*
+import java.util.Calendar
 import java.util.concurrent.TimeUnit
 
 class ShowRateUsLogicTest : Spek({
@@ -22,7 +22,7 @@ class ShowRateUsLogicTest : Spek({
     val LESS_THAN_TWO_MONTHS = TimeUnit.DAYS.toMillis(59)
     val MORE_THAN_TWO_MONTHS = TimeUnit.DAYS.toMillis(61)
 
-    val mockedContext = SPMockBuilder().createContext()
+    val mockedContext by memoized { SPMockBuilder().createContext() }
 
     val rateUsPreferences by memoized { RateUsPreferencesImpl(mockedContext) }
     val buyPreferences by memoized { BuyPreferencesImpl(mockedContext) }
