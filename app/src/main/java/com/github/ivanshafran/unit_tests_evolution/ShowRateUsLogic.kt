@@ -13,8 +13,7 @@ class ShowRateUsLogic(
     }
 
     fun shouldShowRateUs(): Boolean {
-        val timeFromLastShown =
-            time.getCurrentTimeMillis() - rateUsPreferences.getLastShownTimeMillis()
+        val timeFromLastShown = time.getCurrentTimeMillis() - rateUsPreferences.getLastShownTimeMillis()
         return when {
             // User doesn't want to see "rate us" again
             rateUsPreferences.isNeverShownAgainClicked() -> false
