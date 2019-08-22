@@ -13,28 +13,19 @@ class ShowRateUsLogic(
     }
 
     fun shouldShowRateUs(): Boolean {
-        if (rateUsPreferences.isNeverShownAgainClicked()) {
+        val timeFromLastShown =
+            time.getCurrentTimeMillis() - rateUsPreferences.getLastShownTimeMillis()
+        return when {
             // User doesn't want to see "rate us" again
-            return false
-        }
-
-        if (rateUsPreferences.isRateNowClicked()) {
+            rateUsPreferences.isNeverShownAgainClicked() -> false
             // User already rated the app
-            return false
-        }
-
-        if (buyPreferences.getBuyCount() < 2) {
+            rateUsPreferences.isRateNowClicked() -> false
             // "Rate us" should be shown after 2 "buy" clicked
-            return false
-        }
-
-        val timeFromLastShown = time.getCurrentTimeMillis() - rateUsPreferences.getLastShownTimeMillis()
-        if (timeFromLastShown < TWO_MONTHS_IN_MILLS) {
+            buyPreferences.getBuyCount() < 2 -> false
             // Show "rate us" only first time or if passed two months since last shown time
-            return false
+            timeFromLastShown < TWO_MONTHS_IN_MILLS -> false
+            else -> true
         }
-
-        return true
     }
 
 }
